@@ -6,8 +6,10 @@ define([
   'models/contentModel',
   'text!../../templates/content.html',
   // loading a widget
-  '../../modules/widget1/view'
-  ],function($, _, Backbone, Model, templateContent, view)
+  '../../modules/widget1/view',
+  '../../modules/widget2/view'
+
+  ],function($, _, Backbone, Model, templateContent, viewWidget1, viewWidget2)
   {
 
     var model = new Model({
@@ -19,17 +21,13 @@ define([
       el: '.row-fluid',
       model: model,
       template: _.template(templateContent),
-
+      
       render: function(){
         this.$el.append( this.template(model.toJSON()) );
         console.log(this.el);
         //loading widget1
-        view.render();
-        view.render();
-        view.render();
-        view.render();
-        view.render();
-        view.render();
+        viewWidget1.render();
+        viewWidget2.render();
 
       // a convention to enable chained calls
       return this;
