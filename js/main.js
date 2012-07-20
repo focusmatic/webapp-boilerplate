@@ -2,7 +2,7 @@
 (function() {
 
   var libsPath = 'libs/';
-  var cssPath = '../css';
+  var bootstrapPath = '../modules/bootstrap/';
   require.config({
 
     paths: {
@@ -19,10 +19,10 @@
         'i18n': libsPath + 'require/plugins/i18n',
 
         // bootstrap aliases
-        'bootstrapCSS': 'text!' +cssPath + 'bootstrap/bootstrap.css',
-        'bootstrapJS': libsPath + 'bootstrap/bootstrap.min',
-        'bootstrapJSCarousel': libsPath + 'bootstrap/plugins/bootstrap-carousel',
-        'bootstrapJSDropdown': libsPath + 'bootstrap/plugins/bootstrap-dropdown'
+        'bootstrapCSS': 'text!' +bootstrapPath + 'css/bootstrap.css',
+        'bootstrapJS': bootstrapPath + 'js/bootstrap.min',
+        'bootstrapJSCarousel': bootstrapPath + 'plugins/bootstrap-carousel',
+        'bootstrapJSDropdown': bootstrapPath + 'plugins/bootstrap-dropdown'
       },
       shim: {
         // dealing with dependencies and exports of non-AMD modules
@@ -38,14 +38,8 @@
 
   require([
     // Load our apps
-    'jquery',
-    'underscore',
-    'backbone',
     'app'
-
-    // Load plugins
-
-    ], function($, _, backbone, app){
+    ], function(app){
       console.log('####### executing main.js #######');
       app.init();
     }

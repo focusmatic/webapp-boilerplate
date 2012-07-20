@@ -1,7 +1,7 @@
 // Filename: app.js
 // main entry point for the app
 define([
-    'routers/router' // request routers/router.js
+    'routers/router'
     ], function(Router)
     {
         var init = function () {

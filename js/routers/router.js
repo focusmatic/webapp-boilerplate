@@ -1,12 +1,10 @@
 // Filename: router.js
 define([
-    //'jquery',
-    //'underscore',
-    //'backbone',
+    'backbone',
     'views/homeView',
     'views/contentView',
     'views/menuView'
-    ], function(homeView, contentView, menuView)
+    ], function(Backbone, homeView, contentView, menuView)
     {
         var router = Backbone.Router.extend({
             initialize : function () {

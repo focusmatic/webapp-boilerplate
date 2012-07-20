@@ -18,7 +18,7 @@ define([
 
       render: function(){
        this.$el.prepend( this.template(model.toJSON()) );
-       $('#RequireJS').after("<link rel='stylesheet' href='css/bootstrap/bootstrap.css'>");
+       $('#RequireJS').after("<link rel='stylesheet' href='modules/bootstrap/css/bootstrap.css'>");
        $('#RequireJS').after("<link rel='stylesheet' href='css/mycss.css'>");
         // dropdown menu
         $('.dropdown-toggle').dropdown();
