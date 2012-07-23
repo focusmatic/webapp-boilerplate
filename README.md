@@ -1,5 +1,3 @@
-07/18/2012
-
 A boiler plate for backbone and require.
 ========================================
 
@@ -10,9 +8,3 @@ A set of best practices and utilities for building a widget based application.
 * Underscore : http://underscorejs.org/
 * jQuery : http://jquery.com
 * Bootstrap CSS : http://twitter.github.com/bootstrap/
-
-07/20/2012
-
-new features :
-
-* bootstrap becomes a module.
