@@ -3,17 +3,16 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/contentModel',
-  'text!../../templates/home.html',
-  'text!../../templates/content.html',
-  'text!../../templates/menu.html'
-  ],function($, _, Backbone, Model, templateHome, templateContent, templateMenu)
+  'sharedMain/modelEmpty',
+  'text!Navbar/navbar.html',
+  'text!Menu/menu.html'
+  ],function($, _, Backbone, Model, templateNavbar, templateMenu)
   {
 
     var model = new Model({});
 
     var View = Backbone.View.extend({
-      el: '.row-fluid',
+      el: '#container',
       model: model,
       template: _.template(templateMenu),
 

@@ -1,16 +1,16 @@
 // Filename: router.js
 define([
     'backbone',
-    'views/homeView',
-    'views/contentView',
-    'views/menuView'
-    ], function(Backbone, homeView, contentView, menuView)
+    'Navbar/viewNavbar',
+    'Content/viewContent',
+    'Menu/viewMenu'
+    ], function(Backbone, viewNavbar, viewContent, viewMenu)
     {
         var router = Backbone.Router.extend({
             initialize : function () {
-                this.homeView = homeView;
-                this.contentView = contentView;
-                this.menuView = menuView;
+                this.viewNavbar = viewNavbar;
+                this.viewContent = viewContent;
+                this.viewMenu = viewMenu;
                 Backbone.history.start();
                 console.log('###### router initialized. #######');
             },
@@ -19,9 +19,9 @@ define([
             },
             home : function() {
                 // loading content
-                this.homeView.render();
-                this.menuView.render();
-                this.contentView.render();
+                this.viewNavbar.render();
+                this.viewMenu.render();
+                this.viewContent.render();
             }
         });
         return router;

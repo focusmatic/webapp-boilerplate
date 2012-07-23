@@ -1,4 +1,4 @@
-// Filename: models/menuModel.js
+// Filename: /modules/sharedMain/modelEmpty.js
 define([
 	'jquery',
 	'underscore',

@@ -1,22 +1,28 @@
 // Filename: main.js
 (function() {
 
-  var libsPath = 'libs/';
+  var extPath = '';
   var bootstrapPath = '../modules/bootstrap/';
   require.config({
 
     paths: {
         // Configuring aliases
         // Useful for updating
-        'jquery': libsPath + 'jquery/jquery-1.7.2.min',
-        'underscore': libsPath + 'underscore/underscore-min',
-        'backbone': libsPath + 'backbone/backbone-min',
+        'jquery': extPath + 'jquery/jquery-1.7.2.min',
+        'underscore': extPath + 'underscore/underscore-min',
+        'backbone': extPath + 'backbone/backbone-min',
 
         // require plugins aliases
-        'json': libsPath + 'require/plugins/json',
-        'text': libsPath + 'require/plugins/text',
-        'domReady': libsPath + 'require/plugins/domReady',
-        'i18n': libsPath + 'require/plugins/i18n',
+        'json': extPath + 'require/plugins/json',
+        'text': extPath + 'require/plugins/text',
+        'domReady': extPath + 'require/plugins/domReady',
+        'i18n': extPath + 'require/plugins/i18n',
+
+        // UI module aliases
+        'sharedMain' : '../modules/sharedMain/',
+        'Navbar' : '../modules/sharedMain/navbar/',
+        'Menu' : '../modules/sharedMain/menu/',
+        'Content' : '../modules/sharedMain/content/',
 
         // bootstrap aliases
         'bootstrapCSS': 'text!' +bootstrapPath + 'css/bootstrap.css',

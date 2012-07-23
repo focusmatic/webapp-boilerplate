@@ -14,14 +14,13 @@ define([
     });
 
     var View = Backbone.View.extend({
-      el: ".row-fluid",
+      el: '.row-fluid',
       model: model,
       template: _.template(template),
 
       render: function(){
-        //this.$el.append( this.template(model.toJSON()) );
         this.$el.append( this.template(model.toJSON()) );
-        console.log($('#content'));
+        console.log(this.$el);
       // a convention to enable chained calls
       return this;
     }

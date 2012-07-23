@@ -3,10 +3,10 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/homeModel',
+  'sharedMain/modelEmpty',
   'bootstrapJS',
   'bootstrapJSDropdown',
-  'text!../../templates/home.html'
+  'text!Navbar/navbar.html'
   ],function($, _, Backbone, Model, bootstrapJS,bootstrapJSDropdown, templateHome)
   {
 
@@ -18,8 +18,6 @@ define([
 
       render: function(){
        this.$el.prepend( this.template(model.toJSON()) );
-       $('#RequireJS').after("<link rel='stylesheet' href='modules/bootstrap/css/bootstrap.css'>");
-       $('#RequireJS').after("<link rel='stylesheet' href='css/mycss.css'>");
         // dropdown menu
         $('.dropdown-toggle').dropdown();
         // carousel

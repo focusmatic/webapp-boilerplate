@@ -3,8 +3,8 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  '../widget1/model',
-  'text!../widget1/template.html'
+  '../widget2/model',
+  'text!../widget2/template.html'
   ],function($, _, Backbone, Model, template)
   {
 
@@ -14,23 +14,27 @@ define([
     });
 
     var View = Backbone.View.extend({
-      el: '.row-fluid',
       model: model,
-      template: _.template(template),
-
-      events: {
-        'click .well': 'popup'
+      //template: _.template(template),
+      parent : null,
+      setParent : function(parent){
+        console.log($(parent).html());
+        this.parent = parent;
       },
+      tagName: 'article',
+      className: 'contact-container',
+      template: function () {
+        return $(this.parent).html();
+      },
+      //tmpl : _.template(this.template),
 
       render: function(){
-        //this.$el.append( this.template(model.toJSON()) );
-        this.$el.append( this.template(model.toJSON()) );
-        console.log($('#content'));
+        //this.$el.append(template);
+        //this.$el.append( this.tmpl(model.toJSON()) );
+        //this.$el.html( tmpl(model.toJSON()) );
+        console.log(this.$el);
       // a convention to enable chained calls
       return this;
-    },
-    popup : function(){
-      alert('a test !');
     }
   });
 
