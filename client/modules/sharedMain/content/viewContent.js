@@ -5,12 +5,14 @@ define([
   'backbone',
   'sharedMain/modelEmpty',
   'text!Content/content.html'
+  //'sharedModule'
   ],function(
     $,
     _,
     Backbone,
     Model,
-    templateContent
+    templateContent,
+    sharedModule
    )
   {
 
@@ -27,11 +29,7 @@ define([
       render: function(){
         this.$el.append( this.template(model.toJSON()) );
         console.log(this.$el);
-        //loading widget1
-        //viewWidget1.render();
-        viewWidget2.setParent('#container');
-        //viewWidget2.render();
-        //masterView.render();
+        //console.log(sharedModule(1,1));
       // a convention to enable chained calls
       return this;
     }
