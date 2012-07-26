@@ -1,5 +1,4 @@
-A boiler plate for backbone and require.
-========================================
+#A web-app boilerplate
 
 A set of best practices and utilities for building a widget based application.
 
@@ -8,3 +7,9 @@ A set of best practices and utilities for building a widget based application.
 * Underscore : http://underscorejs.org/
 * jQuery : http://jquery.com
 * Bootstrap CSS : http://twitter.github.com/bootstrap/
+
+## Conventions
+
+A set of rules based on best pratices.
+
+### File-Naming

@@ -1,12 +1,13 @@
 // Filename: main.js
 (function() {
 
-  var extPath = 'ext/';
-  var bootstrapPath = 'ext/bootstrap/';
+  var extPath = 'client/ext/';
+  var bootstrapPath = 'client/ext/bootstrap/';
+  var modulesPath = 'client/modules/';
   //var sharedPath = '  ../shared/';
 
   require.config({
-
+    baseUrl: '..',
     paths: {
         // Configuring aliases
         // Useful for updating
@@ -21,19 +22,20 @@
         'i18n': extPath + 'require/plugins/i18n',
 
         // UI module aliases
-        'sharedMain' : '../modules/sharedMain',
-        'Navbar' : '../modules/sharedMain/navbar',
-        'Menu' : '../modules/sharedMain/menu',
-        'Content' : '../modules/sharedMain/content',
+        'sharedMain' : modulesPath + 'sharedMain',
+        // Path aliases
+        'Navbar' : modulesPath + 'sharedMain/navbar',
+        'Menu' : modulesPath + 'sharedMain/menu',
+        'Content' : modulesPath + 'sharedMain/content',
 
         // bootstrap aliases
         'bootstrapCSS': 'text!' +bootstrapPath + 'css/bootstrap.css',
         'bootstrapJS': bootstrapPath + 'js/bootstrap',
         'bootstrapJSCarousel': bootstrapPath + 'plugins/bootstrap-carousel',
-        'bootstrapJSDropdown': bootstrapPath + 'plugins/bootstrap-dropdown'
+        'bootstrapJSDropdown': bootstrapPath + 'plugins/bootstrap-dropdown',
         
         // shared modules aliases
-        //'sharedModule' : '../shared/sharedModule'
+        'mySharedModule' : '../shared/sharedModule'
       },
       shim: {
         // dealing with dependencies and exports of non-AMD modules
@@ -49,7 +51,7 @@
 
   require([
     // Load our apps
-    'app'
+    'client/app'
     ], function(app){
       console.log('####### executing main.js #######');
       app.init();

@@ -4,17 +4,16 @@ define([
   'underscore',
   'backbone',
   'sharedMain/modelEmpty',
-  'text!Content/content.html'
-  //'sharedModule'
-  ],function(
+  'text!Content/content.html',
+  'mySharedModule'
+  ], function (
     $,
     _,
     Backbone,
     Model,
     templateContent,
     sharedModule
-   )
-  {
+   ){
 
     var model = new Model({
       title: 'Hello !',
@@ -29,7 +28,8 @@ define([
       render: function(){
         this.$el.append( this.template(model.toJSON()) );
         console.log(this.$el);
-        //console.log(sharedModule(1,1));
+        // using a shared module
+        console.log('using a shared module :'+sharedModule(1,1));
       // a convention to enable chained calls
       return this;
     }

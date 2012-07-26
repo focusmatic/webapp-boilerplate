@@ -4,8 +4,12 @@ define([
     'Navbar/viewNavbar',
     'Content/viewContent',
     'Menu/viewMenu'
-    ], function(Backbone, viewNavbar, viewContent, viewMenu)
-    {
+    ], function (
+        Backbone,
+        viewNavbar,
+        viewContent,
+        viewMenu
+    ){
         var router = Backbone.Router.extend({
             initialize : function () {
                 this.viewNavbar = viewNavbar;

@@ -13,7 +13,7 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
-    app.use(express.static(__dirname +'/../client'));
+    app.use(express.static(__dirname +'/..'));
 });
 app.configure('development', function(){
 
@@ -24,7 +24,6 @@ app.configure('production', function(){
 });
 
 // Routes
-console.log(path.normalize(__dirname+'/../client/'));
 app.get('/', function(req, res){
 
     res.sendfile(path.normalize(__dirname+'/../client/index.html'));
