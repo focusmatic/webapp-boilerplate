@@ -19,9 +19,9 @@ A set of rules based on best pratices.
 ### Modules usage
 
 Some good practices to define modules and use them :
-	* define a path alias to the module on the main.js
-	* call modules like 'path-to-my-module/entry-point-of-my-module.js'
-	* use relative path to define dependencies between files
+	- define a path alias to the module on the main.js
+	- call modules like 'path-to-my-module/entry-point-of-my-module.js'
+	- use relative path to define dependencies between files
 
 ## Content Listing
 
