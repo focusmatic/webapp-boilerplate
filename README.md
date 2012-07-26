@@ -25,22 +25,22 @@ Some good practices to define modules and use them :
 
 ## Content Listing
 
-├── client
-│   ├── ext
-│   │   ├── backbone
-│   │   ├── bootstrap
-│   │   │   ├── css
-│   │   │   ├── img
-│   │   │   ├── js
-│   │   │   └── plugins
-│   │   ├── jquery
-│   │   ├── require
-│   │   │   └── plugins
-│   │   └── underscore
-│   └── modules
-│       └── toolboxUI
-│           ├── content
-│           ├── menu
-│           └── navbar
-├── server
-└── shared
+├── client  
+│   ├── ext  
+│   │   ├── backbone  
+│   │   ├── bootstrap  
+│   │   │   ├── css  
+│   │   │   ├── img  
+│   │   │   ├── js  
+│   │   │   └── plugins  
+│   │   ├── jquery  
+│   │   ├── require  
+│   │   │   └── plugins  
+│   │   └── underscore  
+│   └── modules  
+│       └── toolboxUI  
+│           ├── content  
+│           ├── menu  
+│           └── navbar  
+├── server  
+└── shared  
