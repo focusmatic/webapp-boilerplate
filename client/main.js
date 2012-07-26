@@ -31,9 +31,11 @@
         'bootstrapJSCarousel': bootstrapPath + 'plugins/bootstrap-carousel',
         'bootstrapJSDropdown': bootstrapPath + 'plugins/bootstrap-dropdown',
         
+        'modules' : modulesPath,
+
         // shared modules aliases
         //'mySharedModule' : sharedPath + 'sharedModule'
-        'sharedPath' : '../shared'
+        'shared' : '../shared'
       },
       shim: {
         // dealing with dependencies and exports of non-AMD modules

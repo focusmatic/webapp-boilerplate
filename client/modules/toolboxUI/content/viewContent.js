@@ -6,7 +6,7 @@ define([
   // loading modules
   'toolboxUI/modelEmpty',
   //'mySharedModule',
-  'sharedPath/sharedModule2',
+  'shared/sharedModule2',
   // loading other files
   'text!Content/content.html'
   ], function (
