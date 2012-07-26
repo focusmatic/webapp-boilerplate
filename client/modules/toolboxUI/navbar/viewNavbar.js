@@ -1,14 +1,23 @@
-// Filename: views/homeView.js
 define([
+  // loading ext first
   'jquery',
   'underscore',
   'backbone',
-  'sharedMain/modelEmpty',
+  // loading modules
+  'toolboxUI/modelEmpty',
   'bootstrapJS',
   'bootstrapJSDropdown',
+  // loading other files
   'text!Navbar/navbar.html'
-  ],function($, _, Backbone, Model, bootstrapJS,bootstrapJSDropdown, templateHome)
-  {
+  ], function (
+    $,
+    _,
+    Backbone,
+    Model,
+    bootstrapJS,
+    bootstrapJSDropdown,
+    templateHome
+    ){
 
     var model = new Model({});
     var View = Backbone.View.extend({
@@ -16,7 +25,7 @@ define([
       model: model,
       template : _.template(templateHome),
 
-      render: function(){
+      render: function () {
        this.$el.prepend( this.template(model.toJSON()) );
         // dropdown menu
         $('.dropdown-toggle').dropdown();

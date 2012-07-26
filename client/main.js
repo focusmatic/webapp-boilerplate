@@ -1,10 +1,8 @@
-// Filename: main.js
-(function() {
+( function () {
 
   var extPath = 'client/ext/';
   var bootstrapPath = 'client/ext/bootstrap/';
   var modulesPath = 'client/modules/';
-  //var sharedPath = '  ../shared/';
 
   require.config({
     baseUrl: '..',
@@ -21,12 +19,11 @@
         'domReady': extPath + 'require/plugins/domReady',
         'i18n': extPath + 'require/plugins/i18n',
 
-        // UI module aliases
-        'sharedMain' : modulesPath + 'sharedMain',
-        // Path aliases
-        'Navbar' : modulesPath + 'sharedMain/navbar',
-        'Menu' : modulesPath + 'sharedMain/menu',
-        'Content' : modulesPath + 'sharedMain/content',
+        // UI module path aliases
+        'toolboxUI' : modulesPath + 'toolboxUI',
+        'Navbar' : modulesPath + 'toolboxUI/navbar',
+        'Menu' : modulesPath + 'toolboxUI/menu',
+        'Content' : modulesPath + 'toolboxUI/content',
 
         // bootstrap aliases
         'bootstrapCSS': 'text!' +bootstrapPath + 'css/bootstrap.css',
@@ -35,7 +32,8 @@
         'bootstrapJSDropdown': bootstrapPath + 'plugins/bootstrap-dropdown',
         
         // shared modules aliases
-        'mySharedModule' : '../shared/sharedModule'
+        //'mySharedModule' : sharedPath + 'sharedModule'
+        'sharedPath' : '../shared'
       },
       shim: {
         // dealing with dependencies and exports of non-AMD modules

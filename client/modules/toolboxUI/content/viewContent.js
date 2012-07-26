@@ -1,19 +1,22 @@
-// Filename: views/contentView.js
 define([
+  // loading ext first
   'jquery',
   'underscore',
   'backbone',
-  'sharedMain/modelEmpty',
-  'text!Content/content.html',
-  'mySharedModule'
+  // loading modules
+  'toolboxUI/modelEmpty',
+  //'mySharedModule',
+  'sharedPath/sharedModule2',
+  // loading other files
+  'text!Content/content.html'
   ], function (
     $,
     _,
     Backbone,
     Model,
-    templateContent,
-    sharedModule
-   ){
+    sharedModule,
+    templateContent
+    ){
 
     var model = new Model({
       title: 'Hello !',
@@ -25,7 +28,7 @@ define([
       model: model,
       template: _.template(templateContent),
       
-      render: function(){
+      render: function () {
         this.$el.append( this.template(model.toJSON()) );
         console.log(this.$el);
         // using a shared module

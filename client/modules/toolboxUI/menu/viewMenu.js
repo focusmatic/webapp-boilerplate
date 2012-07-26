@@ -1,13 +1,21 @@
-// Filename: views/contentView.js
 define([
+  // loading ext first
   'jquery',
   'underscore',
   'backbone',
-  'sharedMain/modelEmpty',
+  // loading modules
+  'toolboxUI/modelEmpty',
+  // loading other files
   'text!Navbar/navbar.html',
   'text!Menu/menu.html'
-  ],function($, _, Backbone, Model, templateNavbar, templateMenu)
-  {
+  ], function (
+    $,
+    _,
+    Backbone,
+    Model,
+    templateNavbar,
+    templateMenu
+    ){
 
     var model = new Model({});
 
@@ -16,7 +24,7 @@ define([
       model: model,
       template: _.template(templateMenu),
 
-      render: function(){
+      render: function () {
         this.$el.append( this.template(model.toJSON()) );
       // a convention to enable chained calls
       return this;
