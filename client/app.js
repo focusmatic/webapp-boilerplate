@@ -1,3 +1,4 @@
+/*jshint*/
 // Copyright © Focusmatic SAS
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -30,6 +31,7 @@ define([
             // pass in router module and call its init function
             console.log('###### app trying initialize. #######');
             this.router = new Router();
+            
             // injecting css
             utils.loadCSS(style);
             console.log('CSS loaded');

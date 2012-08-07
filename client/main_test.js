@@ -1,3 +1,4 @@
+/*jshint*/
 // Copyright © Focusmatic SAS
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -85,13 +86,9 @@
         }
       }
     });
-
-  require([
-    // Load our apps
-    'client/app'
-    ], function(app){
-      console.log('####### executing main.js #######');
-      app.init();
-    }
-    );
-})();
+    
+    require([
+      // put all your tests here
+      './client/test/test-addition.js',
+'./client/test/test-dom.js'
+]);})();

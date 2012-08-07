@@ -1,3 +1,4 @@
+/* jshint*/
 // Copyright © Focusmatic SAS
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -24,17 +25,20 @@ define([
     'Navbar/viewNavbar',
     'Content/viewContent',
     'Menu/viewMenu'
+
     ], function (
         Backbone,
         viewNavbar,
         viewContent,
-        viewMenu
+        viewMenu,
+        viewQUnit
     ){
         var router = Backbone.Router.extend({
             initialize : function () {
                 this.viewNavbar = viewNavbar;
                 this.viewContent = viewContent;
                 this.viewMenu = viewMenu;
+                this.viewQUnit = viewQUnit;
                 Backbone.history.start();
                 console.log('###### router initialized. #######');
             },

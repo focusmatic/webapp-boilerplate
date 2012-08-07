@@ -29,7 +29,7 @@ var app = express.createServer();
 var path = require('path');
 
 // Configuration
-var port = 8888;
+var port = 3000;
 app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
@@ -48,6 +48,10 @@ app.configure('production', function(){
 app.get('/', function(req, res){
 
     res.sendfile(path.normalize(__dirname+'/../client/index.html'));
+});
+
+app.get('/test', function(req, res){
+	res.sendfile(path.normalize(__dirname+'/../client/index_test.html'));
 });
 
 app.listen(port, function() {

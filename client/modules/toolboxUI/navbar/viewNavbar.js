@@ -28,8 +28,11 @@ define([
   'toolboxUI/modelEmpty',
   'bootstrapJS',
   'bootstrapJSDropdown',
+  'modules/utils',
   // loading other files
-  'text!Navbar/navbar.html'
+  'text!Navbar/itemMenu.html',
+  'text!Navbar/navbar.html',
+  'domReady!'
   ], function (
     $,
     _,
@@ -37,25 +40,72 @@ define([
     Model,
     bootstrapJS,
     bootstrapJSDropdown,
-    templateHome
+    utils,
+    templateMenuItem,
+    templateNavBar
     ){
 
-    var model = new Model({});
-    var View = Backbone.View.extend({
+    utils.loadTemplateScripts(templateNavBar);
+    utils.loadTemplateScripts(templateMenuItem);
+
+    var testMenuItem = [
+      {name: "Jasmine"},
+      {name: "QUnit", link: "/test"},
+      {name: "JSTestDriver"}
+    ];
+
+    var MyModel = Backbone.Model.extend({
+        defaults: {
+          link: "#"
+        }
+    });
+
+    var CollectionMenuItem = Backbone.Collection.extend({
+        model : MyModel
+    });
+
+    var MenuItemView = Backbone.View.extend({
+      el :'#testul',
+      template: _.template($("#itemMenuTemplate").html()),
+
+      render: function(){
+        this.$el.prepend(this.template(this.model.toJSON()));
+        return this;
+      }
+    });
+
+    // main view for the topbar
+    var NavBarView = Backbone.View.extend({
       el: 'body',
-      model: model,
-      template : _.template(templateHome),
+      template : _.template($("#frame-navbar").html()),
+
+      initialize: function () {
+        this.collection = new CollectionMenuItem(testMenuItem);
+        
+      },
 
       render: function () {
-       this.$el.prepend( this.template(model.toJSON()) );
+       var that = this;
+       this.$el.prepend( this.template );
+       _.each(this.collection.models, function (item) {
+            that.renderMenuItem(item);
+       }, this);
         // dropdown menu
         $('.dropdown-toggle').dropdown();
         // carousel
         $('.carousel').carousel();
         // a convention to enable chained calls
         return this;
+      },
+
+      renderMenuItem: function (item){
+        var menuItemView = new MenuItemView({
+          model : item
+        });
+        this.$el.append(menuItemView.render());
+        return this;
       }
     });
 
-    return new View();
+    return new NavBarView();
   });

@@ -32,24 +32,34 @@ Some good practices to define modules and use them :
 * call modules like 'path-to-my-module/entry-point-of-my-module.js'
 * use relative path to define dependencies between files
 
+## Front-End Testing
+
+First of all, be sure you have phantomJS installed and added his path to $PATH. Then put all your tests into client/test and just run.
+
+$ ./runtests
+
+This script generates a main_test.js by listing all test-*.js files into client/test.
+You can also find the QUnit report at the url localhost:3000/test.
+
 ## Content Listing
 
-|── client  
-|   |── ext  
-|   |   |── backbone  
-|   |   |── bootstrap  
-|   |   |   |── css  
-|   |   |   |── img  
-|   |   |   |── js  
-|   |   |   |── plugins  
-|   |   |── jquery  
-|   |   |── require  
-|   |   |   |── plugins  
-|   |   |── underscore  
-|   |── modules  
-|       |── toolboxUI  
-|           |── content  
-|           |── menu  
-|           |── navbar  
-|── server  
-|── shared  
+|-- client  
+|   |-- ext  
+|   |   |-- backbone  
+|   |   |-- bootstrap  
+|   |   |   |-- css  
+|   |   |   |-- img  
+|   |   |   |-- js  
+|   |   |   |-- plugins  
+|   |   |-- jquery  
+|   |   |-- require  
+|   |   |   |-- plugins  
+|   |   |-- underscore  
+|   |-- modules  
+|   |    |-- toolboxUI 
+|   |       |-- content
+|   |       |-- menu
+|   |       |-- navbar
+|   |--test
+|-- server
+|-- shared

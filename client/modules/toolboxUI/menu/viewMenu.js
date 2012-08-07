@@ -26,6 +26,7 @@ define([
   'backbone',
   // loading modules
   'toolboxUI/modelEmpty',
+  'modules/utils',
   // loading other files
   'text!Navbar/navbar.html',
   'text!Menu/menu.html'
@@ -34,16 +35,19 @@ define([
     _,
     Backbone,
     Model,
+    utils,
     templateNavbar,
     templateMenu
     ){
+
+    utils.loadTemplateScripts(templateMenu);
 
     var model = new Model({});
 
     var View = Backbone.View.extend({
       el: '#container',
       model: model,
-      template: _.template(templateMenu),
+      template: _.template($("#menu").html()),
 
       render: function () {
         this.$el.append( this.template(model.toJSON()) );

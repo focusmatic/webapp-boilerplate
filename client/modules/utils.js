@@ -26,7 +26,12 @@ define([
         var exports = {};
 
         exports.loadCSS = function (style){
-            $('<style />').html(style).appendTo('head');
-        }
-        return exports;
-    });
+           $('<style />').html(style).appendTo('head');
+       };
+
+       exports.loadTemplateScripts = function(templates) {
+           $('<div />').html(templates).appendTo($("body"));
+       };
+
+       return exports;
+   });
