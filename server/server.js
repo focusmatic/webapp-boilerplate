@@ -59,8 +59,5 @@ app.listen(port, function() {
 });
 console.log("Express server listening on port %d in %s mode", port, app.settings.env);
 
-// some test using shared modules
-var add = require('../shared/sharedModule');
-console.log('add function : '+add(1,1));
 
 })();
