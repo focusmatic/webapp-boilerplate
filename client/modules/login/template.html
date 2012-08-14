@@ -1,0 +1,46 @@
+<script type="text/template" id="login-template">
+<div id="login-container">
+<form method="post" id="login-form" class="well span3">
+    <h1 class="lead"><a href="/">focusmatic</a></h1>
+    <label>Email </label>
+    <input type="text" name="email" id="user-tf" class="required" placeholder="demo@focusmatic.com">
+    <label>Password</label>
+    <input type="password" name="password" id="pass-tf" class="required" rel="popover" placeholder="demo">
+    <div class="centered-text">
+    <button type="submit" id="btn-login" class="btn btn-primary button-fs"><i class="icon-lock icon-white"></i> Log in</button>
+    </div>
+    <div class="clear-fix"></div>
+    <hr>
+    <div class="btm-links centered-text"><a href="#" id="forgot-password">Forgot Your Password? </a>
+</form>
+</div>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+<div class="modal hide" id="login-failed-modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Login Failure</h3>
+  </div>
+  <div class="modal-body">
+    <p><i class='icon-remove'></i>  Please check your username and/or password</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div>
+</div>
+<div class="modal hide modal-single-input" id="forgot-password-modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Retrieve Password</h3>
+  </div>
+  <div class="modal-body">
+    <form method="post" id="get-credentials-form" class="well">
+      <p>Please enter the email address associated with your account</p>
+      <input type="text" name="email" id="email" class="required span5">
+      <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+      <button data-dismiss="modal" id="cancel" class="btn">Cancel</button>
+      <div class="alert alert-error hide" style="display: none; "></div>
+      <button data-dismiss="alert" class="close"></button>
+    </form>
+  </div>
+  <div class="modal-footer"></div>
+</div>​
+</script>

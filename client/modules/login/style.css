@@ -1,0 +1,76 @@
+/* mycss */
+/*body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+.sidebar-nav {
+	padding: 9px 0;
+}
+*/
+body {
+/*  margin: 0;
+  padding: 0;
+  height: 100%;*/
+  background: #f2f9fe;
+  background: -moz-radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%);
+/* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f2f9fe), color-stop(100%, #d6f0fd));
+/* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%);
+/* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%);
+/* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%);
+/* IE10+ */
+  background: radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%);
+/* W3C */
+}
+.centered-text{
+    text-align:center
+}
+
+#login-container {
+  width: 340px;
+  margin: 160px auto;
+}
+
+#login-container .button-fs {
+  width: 220px;
+  padding: 6px 40px 6px 40px;
+  margin-top: 15px;
+}
+.clear-fix {
+  clear: both;
+}
+.modal-single-input {
+  width: 452px;
+  margin: -200px 0 0 -232px;
+}
+.modal-single-input form {
+  color: #808080;
+  text-shadow: -1px 1px 0 #fff;
+  -moz-text-shadow: -1px 1px 0 #fff;
+  -webkit-text-shadow: -1px 1px 0 #fff;
+  margin-bottom: 0;
+  padding-right:100px;
+}
+.modal-single-input form button {
+  width: 80px;
+  top: 213px;
+  position: absolute;
+}
+.modal-single-input form #cancel {
+  right: 110px;
+}
+.modal-single-input form #submit {
+  right: 18px;
+}
+.modal-single-input .modal-body {
+  height: 140px;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.modal-single-input .modal-footer {
+  height: 20px;
+}
+​
