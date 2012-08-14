@@ -2,12 +2,13 @@
 <script type="text/template" id="frame-navbar">
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
             <a class="brand" href="/">
                 myTitle
             </a>
             <ul class="nav nav-pills">
-                <li class="active"><a href="#">Regular link up</a></li>
+                <li class="active"><a href="/users">Users</a></li>
+                <li><a href="/users/add">Sign in</a></li>
                 <li class="dropdown" id="menu1">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
                         Tests
@@ -19,6 +20,20 @@
                     </ul>
                 </li>
             </ul>
+            <div class="btn-group pull-right">
+                <button class="btn"><i class='icon-user'></i><a href="/user"><%= email %></a></button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <!-- dropdown menu links -->
+                    <li><a href=#><i class='icon-globe'></i> <%= company %></a></li>
+                    <li><a href=#><i class='icon-eye-open'></i> <%= perimeter %></a></li>
+                    <li><a href=#><i class='icon-edit'></i> Edit Profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/logout"><i class='icon-off'></i> Log out</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

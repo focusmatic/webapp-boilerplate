@@ -6,7 +6,9 @@ define([
   "use strict";
 
   var User = Backbone.Model.extend({
-    urlRoot: '/user',
+    urlRoot: function() {
+        return 'https://'+document.location.host+'/user';
+    },
     // idAttribute: '_id',
     defaults: {
       _id: null,

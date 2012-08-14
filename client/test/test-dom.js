@@ -7,4 +7,4 @@ require(['Navbar/viewNavbar'], function(Navbar){
         notEqual($('#testul').length,0,'loading test Navbar');
    });
 
-}); 
+});

@@ -10,18 +10,22 @@ YELLOW="\\033[1;33m"
 CYAN="\\033[1;36m"
 
 echo -e "$GREEN" "------------------ ""$RED"" FRONT-END test v0.1 ""$GREEN""  ------------------""$NORMAL"
-rm ./client/main_test.js
-cat ./client/test/main_test_begin.txt >> ./client/main_test.js
-nbTests=`find ./client -name "test-*.js" | wc -l`
+cd client
+# rm ./client/main_test.js
+rm ./main_test.js
+# cat ./client/test/main_test_begin.txt >> ./client/main_test.js
+cat ./test/main_test_begin.txt >> ./main_test.js
+# nbTests=`find ./client -name "test-*.js" | wc -l`
+nbTests=`find . -name "test-*.js" | wc -l`
 nbLine=1
-for line in `find ./client -name "test-*.js"`; do
+for line in `find . -name "test-*.js"`; do
 	if [ "$nbLine" -eq "$nbTests" ]; then
-		echo "'$line'" >> ./client/main_test.js
+		echo "'$line'" >> ./main_test.js
 	else
-		echo "'$line'," >> ./client/main_test.js
+		echo "'$line'," >> ./main_test.js
 	fi
 	nbLine=$((nbLine+1))
 done
-echo "]);})();" >> ./client/main_test.js
-phantomjs client/modules/tests.js
+echo "]);});" >> ./main_test.js
+phantomjs --ignore-ssl-errors=yes ./modules/tests.js
 echo -e "$GREEN" "------------------------------©focusmatic------------------""$NORMAL"

@@ -24,12 +24,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  // loading modules
-  'toolboxUI/modelEmpty',
-  'bootstrapJS',
-  'bootstrapJSDropdown',
+  'Login/model',
+  'bootstrap',
   'modules/utils',
-  // loading other files
   'text!Navbar/itemMenu.html',
   'text!Navbar/navbar.html',
   'domReady!'
@@ -39,7 +36,6 @@ define([
     Backbone,
     Model,
     bootstrapJS,
-    bootstrapJSDropdown,
     utils,
     templateMenuItem,
     templateNavBar
@@ -47,65 +43,73 @@ define([
 
     utils.loadTemplateScripts(templateNavBar);
     utils.loadTemplateScripts(templateMenuItem);
-
-    var testMenuItem = [
-      {name: "Jasmine"},
-      {name: "QUnit", link: "/test"},
-      {name: "JSTestDriver"}
-    ];
-
+    var User = Model,
+        user = new User(),
+        testMenuItem = [
+            {name: "Jasmine"},
+            {name: "QUnit", link: "/test"},
+            {name: "JSTestDriver"}
+        ];
+    
     var MyModel = Backbone.Model.extend({
-        defaults: {
-          link: "#"
+            defaults: {
+                link: "#"
+            }
+        }),
+        CollectionMenuItem = Backbone.Collection.extend({
+            model : MyModel
+        }),
+        MenuItemView = Backbone.View.extend({
+            el :'#testul',
+            template: _.template($("#itemMenuTemplate").html()),
+
+            render: function(){
+                this.$el.prepend(this.template(this.model.toJSON()));
+                return this;
+            }
+        });
+
+        // main view for the topbar
+    var NavBarView = Backbone.View.extend({
+        el: 'body',
+        template : _.template($("#frame-navbar").html()),
+
+        initialize: function () {
+            this.collection = new CollectionMenuItem(testMenuItem);
+        },
+
+        buildnavbar: function(){
+            var that = this;
+            console.log(user.toJSON());
+            this.$el.prepend( this.template(user.toJSON()) );
+            $('.dropdown-toggle').dropdown();
+            _.each(this.collection.models, function (item) {
+                that.renderMenuItem(item);
+            }, this);
+        },
+        
+        render: function () {
+            var that = this;
+            user.fetch({
+                success: function(){
+                    that.buildnavbar();
+                },
+                error: function(jqXHR, statusText, err){
+                    that.buildnavbar();
+                }
+            });
+            // a convention to enable chained calls
+            return this;
+        },
+
+        renderMenuItem: function (item){
+            var menuItemView = new MenuItemView({
+                model : item
+            });
+            this.$el.append(menuItemView.render());
+            return this;
         }
     });
 
-    var CollectionMenuItem = Backbone.Collection.extend({
-        model : MyModel
-    });
-
-    var MenuItemView = Backbone.View.extend({
-      el :'#testul',
-      template: _.template($("#itemMenuTemplate").html()),
-
-      render: function(){
-        this.$el.prepend(this.template(this.model.toJSON()));
-        return this;
-      }
-    });
-
-    // main view for the topbar
-    var NavBarView = Backbone.View.extend({
-      el: 'body',
-      template : _.template($("#frame-navbar").html()),
-
-      initialize: function () {
-        this.collection = new CollectionMenuItem(testMenuItem);
-        
-      },
-
-      render: function () {
-       var that = this;
-       this.$el.prepend( this.template );
-       _.each(this.collection.models, function (item) {
-            that.renderMenuItem(item);
-       }, this);
-        // dropdown menu
-        $('.dropdown-toggle').dropdown();
-        // carousel
-        $('.carousel').carousel();
-        // a convention to enable chained calls
-        return this;
-      },
-
-      renderMenuItem: function (item){
-        var menuItemView = new MenuItemView({
-          model : item
-        });
-        this.$el.append(menuItemView.render());
-        return this;
-      }
-    });
-
     return new NavBarView();
-  });
+});

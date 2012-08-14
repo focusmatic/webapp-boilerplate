@@ -3,11 +3,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'bootstrapJS',
+  'bootstrap',
   // loading other files
   'modules/utils',
   'text!Login/template.html',
-  'ext/jquery/jquery.validate',
+  'jquery-validate',
   'jquery-form'
   ], function (
     $,

@@ -26,19 +26,18 @@ define([
   'backbone',
   // loading modules
   'toolboxUI/modelEmpty',
-  //'mySharedModule',
-  'shared/sharedModule',
   'modules/utils',
   // loading other files
-  'text!Content/content.html'
+  'text!Content/content.html',
+  'shared/sharedModule'
   ], function (
     $,
     _,
     Backbone,
     Model,
-    sharedModule,
     utils,
     templateContent
+    // sharedModule
     ){
 
     utils.loadTemplateScripts(templateContent);
@@ -56,7 +55,7 @@ define([
         this.$el.append( this.template(model.toJSON()) );
         // console.log(this.$el);
         // using a shared module
-        console.log('using a shared module :'+sharedModule(1,1));
+        // console.log('using a shared module :'+sharedModule(1,1));
       // a convention to enable chained calls
       return this;
     }

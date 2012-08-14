@@ -22,9 +22,9 @@
 
 // main entry point for the app
 define([
-    'client/router',
+    'router',
     'modules/utils',
-    'text!client/modules/toolboxUI/mycss.css'
+    'text!modules/toolboxUI/mycss.css'
     ], function ( Router, utils, style )
     {
         var init = function () {

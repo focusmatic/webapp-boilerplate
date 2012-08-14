@@ -30,15 +30,13 @@ define([
         Backbone,
         viewNavbar,
         viewContent,
-        viewMenu,
-        viewQUnit
+        viewMenu
     ){
         var router = Backbone.Router.extend({
             initialize : function () {
                 this.viewNavbar = viewNavbar;
                 this.viewContent = viewContent;
                 this.viewMenu = viewMenu;
-                this.viewQUnit = viewQUnit;
                 Backbone.history.start();
                 console.log('###### router initialized. #######');
             },
