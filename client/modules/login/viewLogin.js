@@ -20,20 +20,29 @@ define([
 
     utils.loadTemplateScripts(templateLogin);
 
-    function showRequestLogin(formData, jqForm, options) {
-        var queryString = $.param(formData);
-        console.log('About to submit: \n' + queryString);
-        return true;
+    var optionsForm = {
+                    beforeSubmit:  showRequest,
+                    success:       showResponse,
+                    error: showError,
+                    clearForm: true
+                };
+
+    function showRequest(formData, jqForm, options) {
+        if($('#login-form').valid()){
+            return true;
+        } else {
+            return false;
+        }
     }
-    function showResponseLogin(responseText, statusText, xhr, $form)  {
+    function showResponse(responseText, statusText, xhr, $form)  {
         console.log('StatusText: '+statusText );
         if(statusText === 'success'){
             window.location.href = '/';
         }
     }
-    function showErrorLogin(error){
+    function showError(error){
         console.log(error);
-        $('#login-failed-modal').modal('show');
+        $('#login-form-modal').modal('show');
     }
 
     var View = Backbone.View.extend({
@@ -47,20 +56,11 @@ define([
             $('#forgot-password').click(function(){
                 $('#forgot-password-modal').modal('show');
             });
-            $(document).ready(function() {
-                var options = {
-                    beforeSubmit:  showRequestLogin,
-                    success:       showResponseLogin,
-                    error: showErrorLogin,
-                    clearForm: true
-                };
-                $('#login-form').submit(function() {
-                    $(this).ajaxSubmit(options);
-                    // always return false to prevent standard browser submit and page navigation
-                    return false;
-                });
+            $('#login-form').submit(function() {
+                $(this).ajaxSubmit(optionsForm);
+                // always return false to prevent standard browser submit and page navigation
+                return false;
             });
-        
             return this;
         }
     });
