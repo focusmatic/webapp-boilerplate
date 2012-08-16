@@ -35,7 +35,7 @@ Some good practices to define modules and use them :
 
 ## Front-End Testing
 
-First of all, be sure you have phantomJS installed and added his path to `$PATH`. Then put all your tests into client/test and just run
+First of all, be sure you have phantomJS installed and added his path to `$PATH`. Then put all your tests into `client/test` and just run
 
 	$ ./runtests
 

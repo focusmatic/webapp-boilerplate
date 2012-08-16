@@ -29,7 +29,7 @@ cd client
 # rm ./client/main_test.js
 rm ./main_test.js
 # cat ./client/test/main_test_begin.txt >> ./client/main_test.js
-cat ./test/main_test_begin.txt >> ./main_test.js
+cat ./modules/test/main_test_begin.txt >> ./main_test.js
 # nbTests=`find ./client -name "test-*.js" | wc -l`
 nbTests=`find . -name "test-*.js" | wc -l`
 nbLine=1
