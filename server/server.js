@@ -25,21 +25,14 @@
 // Modules dependencies
 var express     = require('express'),
     connect     = require('connect'),
-    https       = require('https'),
+    http       = require('http'),
     path        = require('path'),
     mongo       = require('mongodb'),
     mongoose    = require('mongoose'),
-    MongoStore  = require('connect-mongodb'),
-    jade        = require('jade'),
-    fs          = require('fs'),
-    options     = {
-        key: fs.readFileSync(__dirname+'/key.pem'),
-        cert: fs.readFileSync(__dirname+'/cert.pem'),
-        ca: fs.readFileSync(__dirname+'/cert.csr')
-    };
+    MongoStore  = require('connect-mongodb');
 
 // Configuration
-var port          = 443,
+var port          = 8888,
     User,
     app,
     serverapp,
@@ -49,7 +42,7 @@ var port          = 443,
     db            = new Db('focusmatic', server_config, {});
     
 app = express();
-serverapp = https.createServer(options, app);
+serverapp = http.createServer(app);
 app.configure('development', function(){
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
@@ -62,14 +55,11 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.logger({ format: '\x1b[1m:method\x1b[0m \x1b[33m:url\x1b[0m \x1b[34m:status\x1b[0m :response-time ms' }));
-
     app.use(express.cookieParser('focusmatic'));
     app.use(express.session({
         cookie : {maxAge: 60000 * 60}, // 1 minute
         store: new MongoStore({db : db})
     }));
-
-
     app.use(app.router);
     app.use('/shared', express.static(__dirname + '/../shared'));
     app.use(express.static(__dirname +'/../client'));
