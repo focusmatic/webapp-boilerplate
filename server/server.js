@@ -33,7 +33,6 @@ var express     = require('express'),
 
 // Configuration
 var port          = 8888,
-    User,
     app,
     serverapp,
     Server        = mongo.Server,
