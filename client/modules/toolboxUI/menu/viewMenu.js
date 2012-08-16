@@ -1,4 +1,4 @@
-// Copyright © Focusmatic SAS
+// Copyright © 2012, Focusmatic SAS
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -20,24 +20,21 @@
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 define([
-  // loading ext first
-  'jquery',
-  'underscore',
-  'backbone',
-  // loading modules
-  'toolboxUI/modelEmpty',
-  'modules/utils',
-  // loading other files
-  'text!Navbar/navbar.html',
-  'text!Menu/menu.html'
-  ], function (
-    $,
-    _,
-    Backbone,
-    Model,
-    utils,
-    templateNavbar,
-    templateMenu
+    'jquery',
+    'underscore',
+    'backbone',
+    'toolboxUI/modelEmpty',
+    'modules/utils',
+    'text!Navbar/navbar.html',
+    'text!Menu/menu.html'
+    ], function (
+        $,
+        _,
+        Backbone,
+        Model,
+        utils,
+        templateNavbar,
+        templateMenu
     ){
 
     utils.loadTemplateScripts(templateMenu);
@@ -45,16 +42,15 @@ define([
     var model = new Model({});
 
     var View = Backbone.View.extend({
-      el: '#container',
-      model: model,
-      template: _.template($("#menu").html()),
+        el: '#container',
+        model: model,
+        template: _.template($("#menu").html()),
 
-      render: function () {
-        this.$el.append( this.template(model.toJSON()) );
-      // a convention to enable chained calls
-      return this;
-    }
-  });
-
+        render: function () {
+            this.$el.append( this.template(model.toJSON()) );
+            // a convention to enable chained calls
+            return this;
+        }
+    });
     return new View();
-  });
+});

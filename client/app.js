@@ -1,5 +1,4 @@
-/*jshint*/
-// Copyright © Focusmatic SAS
+// Copyright © 2012, Focusmatic SAS
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -28,11 +27,9 @@ define([
     ], function ( Router, utils, style )
     {
         var init = function () {
-            // pass in router module and call its init function
-            console.log('###### app trying initialize. #######');
+            console.log('###### app initializing. #######');
             this.router = new Router();
             
-            // injecting css
             utils.loadCSS(style);
             console.log('CSS loaded');
             console.log('###### app initialized. #######');

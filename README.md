@@ -19,7 +19,7 @@ To install the node modules, from the root folder
 
 	$ npm install 
 
-every node's dependencies will be download and install.
+every node's dependencies will be downloaded and installed.
 
 ## Conventions
 

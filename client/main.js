@@ -1,4 +1,4 @@
-// Copyright © Focusmatic SAS
+// Copyright © 2012, Focusmatic SAS
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -19,7 +19,6 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-/*jshint*/
 /*global require*/
 
 require(['./common'], function (common) {

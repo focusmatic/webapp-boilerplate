@@ -1,4 +1,4 @@
-// Copyright © Focusmatic SAS
+// Copyright © 2012, Focusmatic SAS
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -26,12 +26,12 @@ define([
         var exports = {};
 
         exports.loadCSS = function (style){
-           $('<style />').html(style).appendTo('head');
-       };
+            $('<style />').html(style).appendTo('head');
+        };
 
-       exports.loadTemplateScripts = function(templates) {
+        exports.loadTemplateScripts = function(templates) {
            $('<div />').html(templates).appendTo($("body"));
-       };
+        };
 
-       return exports;
-   });
+        return exports;
+});

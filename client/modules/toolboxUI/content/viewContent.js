@@ -1,4 +1,4 @@
-// Copyright © Focusmatic SAS
+// Copyright © 2012, Focusmatic SAS
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -40,23 +40,21 @@ define([
     utils.loadTemplateScripts(templateContent);
 
     var model = new Model({
-      title: 'Hello !',
-      content: 'My content lorem ipsum.'
+        title: 'Hello !',
+        content: 'My content lorem ipsum.',
+        result: sharedModule(2,3)
     });
 
     var View = Backbone.View.extend({
-      el: '#container',
-      template: _.template($("#content").html()),
+        el: '#container',
+        template: _.template($("#content").html()),
       
-      render: function () {
-        this.$el.append( this.template(model.toJSON()) );
-        // console.log(this.$el);
-        // using a shared module
-        // console.log('using a shared module :'+sharedModule(1,1));
-      // a convention to enable chained calls
-      return this;
-    }
-  });
+        render: function () {
+            this.$el.append( this.template(model.toJSON()) );
+        // a convention to enable chained calls
+        return this;
+        }
+    });
 
     return new View();
-  });
+});

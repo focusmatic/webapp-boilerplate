@@ -1,0 +1,27 @@
+<!-- nav bar template -->
+<script type="text/template" id="frame-navbar">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="/">
+                myTitle
+            </a>
+            <ul class="nav nav-pills">
+                <li class="dropdown" id="menu1">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+                        Test
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" id="testul">
+                        <li class="divider"></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</script>
+<script id="itemMenuTemplate" type="text/template">
+    <li><a href="<%= link %>"><%= name %></a></li>
+</script>

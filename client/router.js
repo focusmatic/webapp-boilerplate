@@ -1,5 +1,4 @@
-/* jshint*/
-// Copyright © Focusmatic SAS
+// Copyright © 2012, Focusmatic SAS
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -34,9 +33,9 @@ define([
     ){
         var router = Backbone.Router.extend({
             initialize : function () {
-                this.viewNavbar = viewNavbar;
+                this.viewNavbar  = viewNavbar;
                 this.viewContent = viewContent;
-                this.viewMenu = viewMenu;
+                this.viewMenu    = viewMenu;
                 Backbone.history.start();
                 console.log('###### router initialized. #######');
             },
