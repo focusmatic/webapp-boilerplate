@@ -1,9 +1,4 @@
 .DS_Store
 node_modules
-client/.js
 client/*.backup.js
-client/index2.html
-server/key.pem
-server/cert.pem
-server/cert.csr
 r.js

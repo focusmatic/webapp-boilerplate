@@ -30,12 +30,6 @@
       'backbone': EXT_PATH + 'backbone/backbone',
       'bootstrap': BOOTSTRAP_PATH + 'js/bootstrap',
 
-      // bootstrap plugins
-      'bootstrap-button': BOOTSTRAP_PLUGIN_PATH + 'bootstrap-button',
-      'bootstrap-collapse': BOOTSTRAP_PLUGIN_PATH + 'bootstrap-collapse',
-      'bootstrap-modal': BOOTSTRAP_PLUGIN_PATH + 'bootstrap-modal',
-      'bootstrapJSDropdown': BOOTSTRAP_PATH + 'plugins/bootstrap-dropdown',
-
       // require plugins
       'json': EXT_PATH + 'require/plugins/json',
       'text': EXT_PATH + 'require/plugins/text',
