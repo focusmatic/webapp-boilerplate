@@ -2,3 +2,4 @@
 node_modules
 client/*.backup.js
 r.js
+client/app.build.js
