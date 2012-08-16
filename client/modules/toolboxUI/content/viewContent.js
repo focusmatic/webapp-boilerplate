@@ -20,14 +20,11 @@
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 define([
-  // loading ext first
   'jquery',
   'underscore',
   'backbone',
-  // loading modules
   'toolboxUI/modelEmpty',
   'modules/utils',
-  // loading other files
   'text!Content/content.html',
   'shared/sharedModule'
   ], function (

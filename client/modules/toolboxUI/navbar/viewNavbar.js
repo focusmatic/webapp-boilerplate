@@ -20,13 +20,11 @@
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 define([
-  // loading ext first
   'jquery',
   'underscore',
   'backbone',
   'bootstrap',
   'modules/utils',
-  'text!Navbar/itemMenu.html',
   'text!Navbar/navbar.html',
   'domReady!'
   ], function (
@@ -35,66 +33,64 @@ define([
     Backbone,
     bootstrap,
     utils,
-    templateMenuItem,
     templateNavBar
     ){
 
     utils.loadTemplateScripts(templateNavBar);
-    // utils.loadTemplateScripts(templateMenuItem);
     var testMenuItem = [
             {name: "QUnit", link: "/test"}
         ];
     
-    var MyModel = Backbone.Model.extend({
-        defaults: {
-            link: "#"
-        }
-    }),
+    var MyModel      = Backbone.Model.extend({
+            defaults: {
+                link: "#"
+            }
+        });
     
-    CollectionMenuItem = Backbone.Collection.extend({
+    var CollectionMenuItem = Backbone.Collection.extend({
         model : MyModel
-    }),
-    MenuItemView = Backbone.View.extend({
+    });
+    
+    var MenuItemView = Backbone.View.extend({
         el :'#testul',
         template: _.template($("#itemMenuTemplate").html()),
-
+        
         render: function(){
             this.$el.prepend(this.template(this.model.toJSON()));
             return this;
         }
     });
 
-        // main view for the topbar
-        var NavBarView = Backbone.View.extend({
-            el: 'body',
-            template : _.template($("#frame-navbar").html()),
+    var NavBarView = Backbone.View.extend({
+        el: 'body',
+        template : _.template($("#frame-navbar").html()),
 
-            initialize: function () {
-                this.collection = new CollectionMenuItem(testMenuItem);
-            },
-
-            buildnavbar: function(){
-                var that = this;
-                this.$el.prepend( this.template );
-                $('.dropdown-toggle').dropdown();
-                _.each(this.collection.models, function (item) {
-                    that.renderMenuItem(item);
-                }, this);
-            },
-
-            render: function () {
-                this.buildnavbar();
-            // a convention to enable chained calls
-            return this;
+        initialize: function () {
+            this.collection = new CollectionMenuItem(testMenuItem);
         },
 
-        renderMenuItem: function (item){
-            var menuItemView = new MenuItemView({
+        buildnavbar: function(){
+            var that = this;
+            this.$el.prepend( this.template );
+            $('.dropdown-toggle').dropdown();
+            _.each(this.collection.models, function (item) {
+                that.renderMenuItem(item);
+            }, this);
+        },
+
+        render: function () {
+            this.buildnavbar();
+        // a convention to enable chained calls
+        return this;
+    },
+
+    renderMenuItem: function (item){
+        var menuItemView = new MenuItemView({
                 model : item
             });
-            this.$el.append(menuItemView.render());
-            return this;
-        }
+        this.$el.append(menuItemView.render());
+        return this;
+    }
     });
 
 return new NavBarView();
