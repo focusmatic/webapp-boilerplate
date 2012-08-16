@@ -28,8 +28,8 @@ define([
   'toolboxUI/modelEmpty',
   'modules/utils',
   // loading other files
-  'text!Content/content.html',
-  'shared/sharedModule'
+  'text!Content/content.html'
+  // 'sharede/sharedModule'
   ], function (
     $,
     _,

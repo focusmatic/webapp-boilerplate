@@ -1,16 +1,16 @@
 {
-    "name": "server",
-    "version": "0.0.1",
-    "main": "server/server.js",
+    "name"        : "server",
+    "version"     : "0.0.1",
+    "main"        : "server/server.js",
     "dependencies": {
-        "amdefine": ">=0.0.2",
-        "express" : ">=3.0.0beta6",
-        "requirejs": ">=2.0.4",
-        "connect-mongodb": "1.1.4",
-        "mongoose": "3.0.0",
-        "jade": "0.27.2",
-        "connect": "2.4.3",
-        "mongodb": "1.1.2",
-        "emailjs": "0.3.1"
+        "amdefine"       : "0.0.2",
+        "express"        : "3.0.0rc3",
+        "requirejs"      : "2.0.5",
+        "connect-mongodb": "1.1.5",
+        "mongoose"       : "3.0.1",
+        "jade"           : "0.27.2",
+        "connect"        : "2.4.3",
+        "mongodb"        : "1.1.2",
+        "emailjs"        : "0.3.1"
     }
 }

@@ -13,7 +13,7 @@ define([
     $,
     _,
     Backbone,
-    bootstrapJS,
+    bootstrap,
     utils,
     templateLogin
     ){

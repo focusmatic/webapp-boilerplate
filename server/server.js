@@ -23,17 +23,17 @@
 'use strict';
 (function(){
 // Modules dependencies
-var express = require('express'),
-    connect = require('connect'),
-    https = require('https'),
-    // app = express.createServer(),
-    path = require('path'),
-    mongo = require('mongodb'),
-    mongoose = require('mongoose'),
-    MongoStore = require('connect-mongodb'),
-    jade = require('jade'),
-    fs = require('fs'),
-    options = {
+var express     = require('express'),
+    connect     = require('connect'),
+    https       = require('https'),
+    // app         = express.createServer(),
+    path        = require('path'),
+    mongo       = require('mongodb'),
+    mongoose    = require('mongoose'),
+    MongoStore  = require('connect-mongodb'),
+    jade        = require('jade'),
+    fs          = require('fs'),
+    options     = {
         key: fs.readFileSync(__dirname+'/key.pem'),
         cert: fs.readFileSync(__dirname+'/cert.pem'),
         ca: fs.readFileSync(__dirname+'/cert.csr')
@@ -41,15 +41,15 @@ var express = require('express'),
     // models = require('./models');
 
 // Configuration
-var port = 443,
+var port          = 443,
     User,
     app,
     serverapp,
     // LoginToken,
-    Server = mongo.Server,
-    Db = mongo.Db,
+    Server        = mongo.Server,
+    Db            = mongo.Db,
     server_config = new Server('localhost', 27017, {auto_reconnect: true, native_parser: true}),
-    db = new Db('focusmatic', server_config, {});
+    db            = new Db('focusmatic', server_config, {});
     
 app = express();
 serverapp = https.createServer(options, app);
@@ -68,7 +68,7 @@ app.configure(function(){
 
     app.use(express.cookieParser('focusmatic'));
     app.use(express.session({
-        cookie : {maxAge: 60000 * 1}, // 1 minute
+        cookie : {maxAge: 60000 * 60}, // 1 minute
         store: new MongoStore({db : db})
     }));
 
@@ -87,15 +87,15 @@ var LM = require('./login');
 
 app.get('/login', LM.routes.loginGET );
 app.post('/login', LM.routes.loginPOST);
+app.get('/', LM.routes.loadUser);
+
 app.get('/users',LM.routes.loadUser , LM.routes.list);
 app.get('/user', LM.routes.loadUser, LM.routes.user);
 app.get('/user/:id', LM.routes.loadUser, LM.routes.user);
 app.get('/users/add', LM.routes.signin);
 app.post('/users/add', LM.routes.add);
 app.get('/logout', LM.routes.loadUser, LM.routes.logout);
-app.get('/', function (req, res, next){
-    res.sendfile(path.normalize(__dirname+'/../client/index.html'));
-});
+
 
 app.get('/test', function(req, res){
     res.sendfile(path.normalize(__dirname+'/../client/index_test.html'));
