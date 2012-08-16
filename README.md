@@ -22,6 +22,8 @@ To install the node modules, from the root folder
 every node's dependencies will be downloaded and installed.
 
 ## Conventions
+###Templating & Rendering
+Templating and rendering are client-side using Underscore and Backbone.
 
 ### Modules usage
 
