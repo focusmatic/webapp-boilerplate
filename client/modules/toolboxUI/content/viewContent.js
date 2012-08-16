@@ -28,16 +28,16 @@ define([
   'toolboxUI/modelEmpty',
   'modules/utils',
   // loading other files
-  'text!Content/content.html'
-  // 'sharede/sharedModule'
+  'text!Content/content.html',
+  'shared/sharedModule'
   ], function (
     $,
     _,
     Backbone,
     Model,
     utils,
-    templateContent
-    // sharedModule
+    templateContent,
+    sharedModule
     ){
 
     utils.loadTemplateScripts(templateContent);

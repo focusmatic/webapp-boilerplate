@@ -27,7 +27,6 @@ require(['./common'], function (common) {
 
     require([
       // put all your tests here
-      './login/test-login.js',
-'./test/test-addition.js',
+      './test/test-addition.js',
 './test/test-dom.js'
 ]);});

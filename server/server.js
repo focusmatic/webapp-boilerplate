@@ -26,7 +26,6 @@
 var express     = require('express'),
     connect     = require('connect'),
     https       = require('https'),
-    // app         = express.createServer(),
     path        = require('path'),
     mongo       = require('mongodb'),
     mongoose    = require('mongoose'),
@@ -38,14 +37,12 @@ var express     = require('express'),
         cert: fs.readFileSync(__dirname+'/cert.pem'),
         ca: fs.readFileSync(__dirname+'/cert.csr')
     };
-    // models = require('./models');
 
 // Configuration
 var port          = 443,
     User,
     app,
     serverapp,
-    // LoginToken,
     Server        = mongo.Server,
     Db            = mongo.Db,
     server_config = new Server('localhost', 27017, {auto_reconnect: true, native_parser: true}),
@@ -78,24 +75,7 @@ app.configure(function(){
     app.use(express.static(__dirname +'/../client'));
 });
 
-// load login module
-
-var LM = require('./login');
-
-
 // Routes
-
-app.get('/login', LM.routes.loginGET );
-app.post('/login', LM.routes.loginPOST);
-app.get('/', LM.routes.loadUser);
-
-app.get('/users',LM.routes.loadUser , LM.routes.list);
-app.get('/user', LM.routes.loadUser, LM.routes.user);
-app.get('/user/:id', LM.routes.loadUser, LM.routes.user);
-app.get('/users/add', LM.routes.signin);
-app.post('/users/add', LM.routes.add);
-app.get('/logout', LM.routes.loadUser, LM.routes.logout);
-
 
 app.get('/test', function(req, res){
     res.sendfile(path.normalize(__dirname+'/../client/index_test.html'));

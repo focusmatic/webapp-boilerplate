@@ -24,7 +24,6 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'Login/model',
   'bootstrap',
   'modules/utils',
   'text!Navbar/itemMenu.html',
@@ -34,70 +33,57 @@ define([
     $,
     _,
     Backbone,
-    Model,
-    bootstrapJS,
+    bootstrap,
     utils,
     templateMenuItem,
     templateNavBar
     ){
 
     utils.loadTemplateScripts(templateNavBar);
-    utils.loadTemplateScripts(templateMenuItem);
-    var User = Model,
-        user = new User(),
-        testMenuItem = [
-            {name: "Jasmine"},
-            {name: "QUnit", link: "/test"},
-            {name: "JSTestDriver"}
+    // utils.loadTemplateScripts(templateMenuItem);
+    var testMenuItem = [
+            {name: "QUnit", link: "/test"}
         ];
     
     var MyModel = Backbone.Model.extend({
-            defaults: {
-                link: "#"
-            }
-        }),
-        CollectionMenuItem = Backbone.Collection.extend({
-            model : MyModel
-        }),
-        MenuItemView = Backbone.View.extend({
-            el :'#testul',
-            template: _.template($("#itemMenuTemplate").html()),
+        defaults: {
+            link: "#"
+        }
+    }),
+    
+    CollectionMenuItem = Backbone.Collection.extend({
+        model : MyModel
+    }),
+    MenuItemView = Backbone.View.extend({
+        el :'#testul',
+        template: _.template($("#itemMenuTemplate").html()),
 
-            render: function(){
-                this.$el.prepend(this.template(this.model.toJSON()));
-                return this;
-            }
-        });
+        render: function(){
+            this.$el.prepend(this.template(this.model.toJSON()));
+            return this;
+        }
+    });
 
         // main view for the topbar
-    var NavBarView = Backbone.View.extend({
-        el: 'body',
-        template : _.template($("#frame-navbar").html()),
+        var NavBarView = Backbone.View.extend({
+            el: 'body',
+            template : _.template($("#frame-navbar").html()),
 
-        initialize: function () {
-            this.collection = new CollectionMenuItem(testMenuItem);
-        },
+            initialize: function () {
+                this.collection = new CollectionMenuItem(testMenuItem);
+            },
 
-        buildnavbar: function(){
-            var that = this;
-            console.log(user.toJSON());
-            this.$el.prepend( this.template(user.toJSON()) );
-            $('.dropdown-toggle').dropdown();
-            _.each(this.collection.models, function (item) {
-                that.renderMenuItem(item);
-            }, this);
-        },
-        
-        render: function () {
-            var that = this;
-            user.fetch({
-                success: function(){
-                    that.buildnavbar();
-                },
-                error: function(jqXHR, statusText, err){
-                    that.buildnavbar();
-                }
-            });
+            buildnavbar: function(){
+                var that = this;
+                this.$el.prepend( this.template );
+                $('.dropdown-toggle').dropdown();
+                _.each(this.collection.models, function (item) {
+                    that.renderMenuItem(item);
+                }, this);
+            },
+
+            render: function () {
+                this.buildnavbar();
             // a convention to enable chained calls
             return this;
         },
@@ -111,5 +97,5 @@ define([
         }
     });
 
-    return new NavBarView();
+return new NavBarView();
 });

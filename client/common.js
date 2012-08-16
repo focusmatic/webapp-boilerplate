@@ -26,8 +26,6 @@
 
       // ext lib aliases
       'jquery': EXT_PATH + 'jquery/jquery-1.7.2',
-      'jquery-validate' : EXT_PATH + 'jquery/jquery.validate',
-      'jquery-form' : EXT_PATH + 'jquery/jquery.form',
       'underscore': EXT_PATH + 'underscore/underscore',
       'backbone': EXT_PATH + 'backbone/backbone',
       'bootstrap': BOOTSTRAP_PATH + 'js/bootstrap',
@@ -47,19 +45,11 @@
 
       // shared modules
 
-      'sharede' : 'shared'
+      'shared' : 'shared'
 
     },
     shim: {
       // dealing with dependencies and exports of non-AMD modules
-      'jquery-form': {
-        deps: ['jquery'],
-        exports: 'jQuery'
-      },
-      'jquery-validate': {
-        deps: ['jquery'],
-        exports: 'jQuery'
-      },
       'bootstrap-button': {
         deps: ['bootstrap']
       },
