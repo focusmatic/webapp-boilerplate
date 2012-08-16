@@ -1,7 +1,7 @@
 ({
     appDir: '.',
     baseUrl: '.',
-    dir: 'target',
+    dir: '../target',
     //mainConfigFile: 'main.js',
     findNestedDependencies: true,
     paths: {
@@ -38,15 +38,13 @@
       'i18n': 'ext/require/plugins/i18n',
       'async': 'ext/require/plugins/async',
 
-      'sharede' : 'shared'
+      'shared' : 'shared'
     },
     modules: [
         {
             name: 'main',
             exlcude : [
               'jquery',
-              'jquery-validate',
-              'jquery-form',
               'underscore',
               'backbone',
               'bootstrap'
