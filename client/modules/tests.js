@@ -28,7 +28,7 @@ var page = new WebPage();
         console.log(msg);
     };
 
-    page.open('https://localhost/test', function(status){
+    page.open('http://localhost:8888/test', function(status){
         if (status !== "success") {
             console.log("Unable to access network");
             phantom.exit();

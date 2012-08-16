@@ -10,7 +10,7 @@ A set of best practices and utilities for building a widget based application.
 
 ## Installation
 
-$ npm install from the root folder
+`$ npm install from the root folder`
 
 every node's dependencies will be download and install.
 
@@ -39,27 +39,4 @@ First of all, be sure you have phantomJS installed and added his path to $PATH. 
 $ ./runtests
 
 This script generates a main_test.js by listing all test-*.js files into client/test.
-You can also find the QUnit report at the url localhost:3000/test.
-
-## Content Listing
-
-|-- client  
-|   |-- ext  
-|   |   |-- backbone  
-|   |   |-- bootstrap  
-|   |   |   |-- css  
-|   |   |   |-- img  
-|   |   |   |-- js  
-|   |   |   |-- plugins  
-|   |   |-- jquery  
-|   |   |-- require  
-|   |   |   |-- plugins  
-|   |   |-- underscore  
-|   |-- modules  
-|   |    |-- toolboxUI 
-|   |       |-- content
-|   |       |-- menu
-|   |       |-- navbar
-|   |--test
-|-- server
-|-- shared
+You can also find the QUnit report at the url localhost:8888/test.

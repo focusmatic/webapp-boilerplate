@@ -23,13 +23,11 @@
 'use strict';
 (function(){
 // Modules dependencies
-var express     = require('express'),
-    connect     = require('connect'),
+var express    = require('express'),
     http       = require('http'),
-    path        = require('path'),
-    mongo       = require('mongodb'),
-    mongoose    = require('mongoose'),
-    MongoStore  = require('connect-mongodb');
+    path       = require('path'),
+    mongo      = require('mongodb'),
+    MongoStore = require('connect-mongodb');
 
 // Configuration
 var port          = 8888,

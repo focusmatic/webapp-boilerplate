@@ -2,8 +2,6 @@
 ( function (){
   var EXT_PATH              = 'ext/';
   var BOOTSTRAP_PATH        = 'ext/bootstrap/';
-  var BOOTSTRAP_PLUGIN_PATH = BOOTSTRAP_PATH + 'plugins/';
-  var D3_PLUGIN_PATH        = EXT_PATH + 'd3/plugins/';
   var MODULES_PATH          = 'modules/';
 
   require.config({
@@ -44,15 +42,6 @@
     },
     shim: {
       // dealing with dependencies and exports of non-AMD modules
-      'bootstrap-button': {
-        deps: ['bootstrap']
-      },
-      'bootstrap-collapse': {
-        deps: ['bootstrap']
-      },
-      'bootstrap-modal': {
-        deps: ['bootstrap']
-      },
       'underscore': {
           exports: '_'
       },
