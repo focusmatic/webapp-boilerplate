@@ -23,9 +23,9 @@ every node's dependencies will be downloaded and installed.
 
 ## Conventions
 ###Templating & Rendering
-Templating and rendering are client-side using Underscore and Backbone.
+Client-side templating and rendering using Underscore and Backbone.
 
-### Modules usage
+### Module usage
 
 Some good practices to define modules and use them :
 
